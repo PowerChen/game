@@ -12,7 +12,7 @@
 start(_StartType, _StartArgs) ->
 	% 端口监听
 	{ok, _} = ranch:start_listener(tcp_game, 4,
-		ranch_tcp, [{port, 5555}], game_protocol, []),
+		ranch_tcp, [{port, 5555},{max_connections, infinity}], game_user, []),
     game_sup:start_link().
 
 stop(_State) ->

@@ -1,0 +1,9 @@
+{application,game,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{game_app,[]}},
+              {env,[]},
+              {modules,[client,client_sup,game,game_app,game_sup,game_tool,
+                        game_user]}]}.

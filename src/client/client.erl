@@ -59,7 +59,7 @@ connect(_Event, State) ->
 thinking(timeout,State)	->
 	% io:format("i am thinking ~n"),
 	Act = what_next_do(),
-	{next_state,Act,State,?BASE_TIME+10};
+	{next_state,Act,State,?BASE_TIME};
 thinking(_Event, State)	->
 	{stop,{error,unknown_event},State}.	
 	
@@ -67,7 +67,7 @@ chat(timeout,#state{socket=Socket}=State)	->
 	% io:format("i am chat ~n"),
 	Msg = say_something(),
 	send_bin(Socket,Msg),
-	{next_state,thinking,State,?BASE_TIME+10};
+	{next_state,thinking,State,?BASE_TIME};
 chat(_Event, State)	->
 	{stop,{error,unknown_event},State}.
 	
